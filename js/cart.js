@@ -35,14 +35,14 @@ function clearCart() {
 function showCart() {
 
   // TODO: Find the table body
-  let cartBody = document.getElementsByTagName('tbody');
+  let cartBody = document.getElementsByTagName('tbody')[0];
 
 
   // TODO: Iterate over the items in the cart
   for (let i = 0; i < Cart.length; i++) {
     let trElement = document.createElement('tr');
     trElement.setAttribute('id', i);
-    trElement.appendChild(cartBody);
+    cartBody.appendChild(trElement);
 
 
     let deleteLink = document.createElement('td');
@@ -50,12 +50,12 @@ function showCart() {
     trElement.appendChild(deleteLink);
 
     let quantityEle = document.createElement('td');
-    quantityEle.textContent = cart.Items[i].quantity;
+    quantityEle.textContent = cart.items[i].quantity;
     trElement.appendChild(quantityEle);
 
-
+console.log (cart.items)
     let itemNameEle = document.createElement('td');
-    itemNameEle.textContent = cart.Items[i].product;
+    itemNameEle.textContent = cart.items[i].product;
     trElement.appendChild(itemNameEle);
 
   }
